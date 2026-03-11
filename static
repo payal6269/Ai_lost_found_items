@@ -1,0 +1,387 @@
+body{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: #0a0e27;
+animation: backgroundColorShift 5s ease infinite;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+margin: 0;
+padding: 20px;
+position: relative;
+overflow: hidden;
+}
+
+@keyframes backgroundColorShift {
+0% { background: #0a0e27; }
+10% { background: #1a0e3e; }
+20% { background: #0e1a3e; }
+30% { background: #1a0e2e; }
+40% { background: #0e2a3e; }
+50% { background: #2a0e3e; }
+60% { background: #0e1a4e; }
+70% { background: #1a2e3e; }
+80% { background: #2e0e3e; }
+90% { background: #0e1a2e; }
+100% { background: #0a0e27; }
+}
+
+/* Glowing particles background */
+.particles {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 1;
+}
+
+.particles::before {
+content: '';
+position: absolute;
+width: 100%;
+height: 100%;
+background-image: 
+    radial-gradient(circle, rgba(79, 172, 254, 0.8) 2px, transparent 2px),
+    radial-gradient(circle, rgba(0, 242, 254, 0.6) 3px, transparent 3px),
+    radial-gradient(circle, rgba(102, 126, 234, 0.7) 2px, transparent 2px),
+    radial-gradient(circle, rgba(118, 75, 162, 0.5) 4px, transparent 4px),
+    radial-gradient(circle, rgba(240, 147, 251, 0.6) 3px, transparent 3px),
+    radial-gradient(circle, rgba(79, 172, 254, 0.4) 2px, transparent 2px),
+    radial-gradient(circle, rgba(0, 242, 254, 0.8) 3px, transparent 3px),
+    radial-gradient(circle, rgba(102, 126, 234, 0.5) 2px, transparent 2px);
+background-size: 
+    550px 550px,
+    350px 350px,
+    450px 450px,
+    600px 600px,
+    500px 500px,
+    400px 400px,
+    650px 650px,
+    300px 300px;
+background-position: 
+    0 0, 40px 60px, 130px 270px, 70px 100px,
+    200px 50px, 300px 200px, 150px 350px, 400px 150px;
+animation: particleFloat 20s linear infinite, colorShift 8s ease infinite;
+filter: blur(8px);
+}
+
+.particles::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 100%;
+background-image: 
+    radial-gradient(circle, rgba(240, 147, 251, 0.7) 3px, transparent 3px),
+    radial-gradient(circle, rgba(79, 172, 254, 0.5) 2px, transparent 2px),
+    radial-gradient(circle, rgba(0, 242, 254, 0.6) 4px, transparent 4px),
+    radial-gradient(circle, rgba(118, 75, 162, 0.8) 3px, transparent 3px),
+    radial-gradient(circle, rgba(102, 126, 234, 0.4) 2px, transparent 2px),
+    radial-gradient(circle, rgba(240, 147, 251, 0.6) 3px, transparent 3px);
+background-size: 
+    400px 400px,
+    500px 500px,
+    350px 350px,
+    550px 550px,
+    450px 450px,
+    600px 600px;
+background-position: 
+    50px 150px, 250px 100px, 350px 250px,
+    100px 300px, 450px 50px, 200px 400px;
+animation: particleFloat 25s linear infinite reverse, colorShift 8s ease infinite 2s;
+filter: blur(10px);
+}
+
+@keyframes particleFloat {
+0% {
+    transform: translateY(0) translateX(0);
+}
+100% {
+    transform: translateY(-100px) translateX(50px);
+}
+}
+
+@keyframes colorShift {
+0% {
+    opacity: 0.6;
+    filter: blur(8px) hue-rotate(0deg);
+}
+25% {
+    opacity: 0.8;
+    filter: blur(10px) hue-rotate(90deg);
+}
+50% {
+    opacity: 0.7;
+    filter: blur(12px) hue-rotate(180deg);
+}
+75% {
+    opacity: 0.9;
+    filter: blur(9px) hue-rotate(270deg);
+}
+100% {
+    opacity: 0.6;
+    filter: blur(8px) hue-rotate(360deg);
+}
+}
+
+/* Twinkling stars layer */
+.stars {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 2;
+}
+
+.stars::before,
+.stars::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 100%;
+background-image: 
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(1px 1px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 15% 90%, white, transparent),
+    radial-gradient(1px 1px at 70% 40%, white, transparent),
+    radial-gradient(1px 1px at 40% 20%, white, transparent),
+    radial-gradient(1px 1px at 85% 85%, white, transparent),
+    radial-gradient(1px 1px at 25% 60%, white, transparent),
+    radial-gradient(1px 1px at 55% 15%, white, transparent),
+    radial-gradient(1px 1px at 10% 45%, white, transparent),
+    radial-gradient(1px 1px at 75% 75%, white, transparent),
+    radial-gradient(1px 1px at 45% 95%, white, transparent);
+background-size: 200% 200%;
+animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars::after {
+animation-delay: 1.5s;
+opacity: 0.7;
+}
+
+@keyframes twinkle {
+0%, 100% { opacity: 0.3; }
+50% { opacity: 1; }
+}
+
+/* Falling items animation */
+body::before {
+content: '';
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E📱%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E🎒%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E💻%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E🔑%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E🍾%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E👜%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E⌚%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E🎧%3C/text%3E%3C/svg%3E");
+background-size: 100px 100px, 110px 110px, 120px 120px, 90px 90px, 95px 95px, 105px 105px, 85px 85px, 98px 98px;
+background-position: 
+    10% -100px,
+    25% -150px,
+    45% -200px,
+    65% -120px,
+    80% -180px,
+    35% -250px,
+    55% -140px,
+    75% -160px;
+background-repeat: no-repeat;
+animation: itemsFalling 15s linear infinite;
+opacity: 0.3;
+pointer-events: none;
+z-index: 1;
+}
+
+@keyframes itemsFalling {
+    0% {
+        background-position: 
+            10% -100px,
+            25% -150px,
+            45% -200px,
+            65% -120px,
+            80% -180px,
+            35% -250px,
+            55% -140px,
+            75% -160px;
+    }
+    100% {
+        background-position: 
+            10% 110vh,
+            25% 110vh,
+            45% 110vh,
+            65% 110vh,
+            80% 110vh,
+            35% 110vh,
+            55% 110vh,
+            75% 110vh;
+    }
+}
+
+/* Second layer of falling items with different timing */
+body::after {
+content: '';
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E📓%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E🕶️%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E💳%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E🎒%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='50' font-size='40'%3E📱%3C/text%3E%3C/svg%3E");
+background-size: 95px 95px, 88px 88px, 92px 92px, 108px 108px, 98px 98px;
+background-position: 
+    20% -180px,
+    40% -130px,
+    60% -200px,
+    15% -160px,
+    85% -140px;
+background-repeat: no-repeat;
+animation: itemsFalling2 18s linear infinite 3s;
+opacity: 0.25;
+pointer-events: none;
+z-index: 1;
+}
+
+@keyframes itemsFalling2 {
+    0% {
+        background-position: 
+            20% -180px,
+            40% -130px,
+            60% -200px,
+            15% -160px,
+            85% -140px;
+    }
+    100% {
+        background-position: 
+            20% 110vh,
+            40% 110vh,
+            60% 110vh,
+            15% 110vh,
+            85% 110vh;
+    }
+}
+
+.container{
+text-align: center;
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(10px);
+padding: 50px;
+border-radius: 20px;
+box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.2);
+max-width: 500px;
+width: 100%;
+position: relative;
+z-index: 10;
+animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+0%, 100% {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);
+}
+50% {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 60px rgba(255, 255, 255, 0.3), 0 0 80px rgba(147, 112, 219, 0.4);
+}
+}
+
+h2{
+margin-bottom: 30px;
+font-size: 32px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+input, textarea{
+padding: 15px;
+width: 100%;
+max-width: 350px;
+margin: 12px 0;
+border: none;
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.9);
+color: #333;
+font-size: 16px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus{
+outline: none;
+background: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button{
+padding: 15px 35px;
+border: none;
+border-radius: 12px;
+background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+color: white;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 15px;
+transition: all 0.3s ease;
+box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+button:hover{
+background: linear-gradient(135deg, #ee5a6f, #ff6b6b);
+transform: translateY(-3px);
+box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+}
+
+.btn{
+display: inline-block;
+margin: 15px 10px;
+padding: 18px 35px;
+background: linear-gradient(135deg, #4facfe, #00f2fe);
+border-radius: 12px;
+color: white;
+text-decoration: none;
+font-size: 18px;
+font-weight: bold;
+transition: all 0.3s ease;
+box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn:hover{
+background: linear-gradient(135deg, #00f2fe, #4facfe);
+transform: translateY(-3px);
+box-shadow: 0 8px 20px rgba(79, 172, 254, 0.6);
+}
+
+img{
+margin-top: 15px;
+border-radius: 12px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+max-width: 100%;
+}
+
+label{
+display: block;
+text-align: left;
+margin-left: 10%;
+margin-top: 15px;
+font-weight: bold;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
